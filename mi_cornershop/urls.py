@@ -15,7 +15,7 @@ Including another URLconf
 """
 #Django
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 #Project
 from mi_cornershop import views
@@ -23,4 +23,6 @@ from mi_cornershop import views
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('menus/', include('apps.menus.urls')),
+    path('employees/', include('apps.employees.urls')),
 ]

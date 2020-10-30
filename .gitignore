@@ -128,4 +128,15 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-.idea/*
+# django migrations
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+*.sqlite3
+
+# Django #
+*.log
+*.pot
+*.pyc
+
+.idea/**
