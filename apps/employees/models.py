@@ -1,6 +1,5 @@
 # Django
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 
 #Apps.menus
 from apps.menus import models as views_menu
@@ -24,7 +23,7 @@ class EmployeePreferences(models.Model):
         ('2', 'Hate'),
     )
     type = models.CharField(max_length=1, choices=type_options, default='1')
-    Employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     plate = models.ForeignKey(views_menu.Plate, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(views_menu.Ingredient, on_delete=models.CASCADE)
     create_at = models.DateTimeField(auto_now_add=True)
