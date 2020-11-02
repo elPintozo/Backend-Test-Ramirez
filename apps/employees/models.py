@@ -9,6 +9,7 @@ from apps.menus import models as views_menu
 from apps.employees import utils
 
 class Employee(models.Model):
+    name = models.CharField(max_length=100, null=False, default='')
     phone = models.IntegerField(null=False, default=0) # wsp
     email = models.EmailField(max_length=254, null=False, default='') # email from account slack
     nationality = models.CharField(max_length=3, default='46', choices=utils.nationality)

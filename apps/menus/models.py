@@ -22,6 +22,7 @@ class Plate(models.Model):
         ('2', 'Salad'),
         ('3', 'Dessert'),
     )
+    name = models.CharField(max_length=100, null=False, default='')
     type = models.CharField(max_length=1, choices=type_options, default='1')
     ingredients = models.ManyToManyField(Ingredient, through='PlateIngredients')
     create_at = models.DateTimeField(auto_now_add=True)
@@ -30,6 +31,7 @@ class Plate(models.Model):
         return self.get_type_display()
 
 class Menu(models.Model):
+    name = models.CharField(max_length=100, null=False, default='')
     day = models.DateTimeField(default=datetime.now, blank=False)
     menu_id = models.CharField(max_length=100, null=False, blank=False, unique=True)
     create_at = models.DateTimeField(auto_now_add=True)
