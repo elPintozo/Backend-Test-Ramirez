@@ -65,6 +65,13 @@ def set_menu_id(sender, instance, *args, **kwargs):
 #I notific that before create menu new, must pass for particular function
 pre_save.connect(set_menu_id, sender=Menu)
 
+"""
+Tips to load data: 
+
+** You can use this command for load data 
+$ python3 manage.py loaddata ingredients_03112020.json
+"""
+
 
 
 
