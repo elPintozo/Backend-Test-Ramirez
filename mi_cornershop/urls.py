@@ -23,6 +23,9 @@ from mi_cornershop import views
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('home', views.home, name='home'),
+    path('users/login', views.login_custom, name='login'),
+    path('users/logout', views.logout_custom, name='logout'),
     path('menus/', include('apps.menus.urls')),
     path('employees/', include('apps.employees.urls')),
 ]

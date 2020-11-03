@@ -1,3 +1,6 @@
+{% url 'login' as login %}
+{% url 'logout' as logout %}
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -18,7 +21,11 @@
             </ul>
             -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{{logout}}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{login}}">Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
