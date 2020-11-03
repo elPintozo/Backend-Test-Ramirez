@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% url 'menus:add-ingredient' as add_ingredient %}
+    {% url 'home' as home %}
+
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-9">
+            <a href="{{add_ingredient}}" class="btn btn-info">Add Ingredient</a>
+            <a href="{{home}}" class="btn btn-info">Back</a>
+        </div>
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ingredient in list_ingredients %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ ingredient.name|capfirst }}</td>
+                            <td>{{ ingredient.get_type_display }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="3">Empty list</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock%}
