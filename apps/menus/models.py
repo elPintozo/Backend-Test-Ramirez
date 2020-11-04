@@ -33,11 +33,11 @@ class Plate(models.Model):
 class Menu(models.Model):
     name = models.CharField(max_length=100, null=False, default='')
     day = models.DateTimeField(default=datetime.now, blank=False)
-    menu_id = models.CharField(max_length=100, null=False, blank=False, unique=True)
+    identifier = models.CharField(max_length=100, null=False, blank=False, unique=True)
     create_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.menu_id
+        return self.identifier
 
     def get_or_create_plate(self, type_plate):
         """
@@ -59,7 +59,7 @@ class PlateIngredients(models.Model):
     class Meta:
         unique_together = [['plate', 'ingredient']]
 
-def set_menu_id(sender, instance, *args, **kwargs):
+def set_menu_identifier(sender, instance, *args, **kwargs):
     """
     Function that help me to create diffucult ID for the menu instance
     :param sender (Class): Menu class
@@ -69,12 +69,12 @@ def set_menu_id(sender, instance, *args, **kwargs):
     :return (None):
     """
     #valid if menu has id
-    if not instance.menu_id:
+    if not instance.identifier:
         #add strong id
-        instance.menu_id = str(uuid.uuid4())
+        instance.identifier = str(uuid.uuid4())
 
 #I notific that before create menu new, must pass for particular function
-pre_save.connect(set_menu_id, sender=Menu)
+pre_save.connect(set_menu_identifier, sender=Menu)
 
 """
 Tips to load data: 
