@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% url 'menus:add-menu' as add_menu %}
+    {% url 'home' as home %}
+
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-9">
+            <a href="{{add_menu}}" class="btn btn-info">Add Menu</a>
+            <a href="{{home}}" class="btn btn-info">Back</a>
+        </div>
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Publication date</th>
+                        <th>Plates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for menu in list_menus %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ menu.name|capfirst }}</td>
+                            <td>{{ menu.day|date:"d-m-Y" }}</td>
+                            <td><a href="{% url 'menus:list-plate-from-menu' menu.pk %}" class="btn btn-primary">Look plates</a> </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">Empty list</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock%}

@@ -39,6 +39,17 @@ class Menu(models.Model):
     def __str__(self):
         return self.menu_id
 
+    def get_or_create_plate(self, type_plate):
+        """
+
+        :param type_plate (string):
+        :return (Plate):
+        """
+        if not PlateIngredients.objects.filter(menu=self, plate__type=type_plate).count():
+            return Plate.objects.create(name=' ', type=type_plate)
+        else:
+            return PlateIngredients.objects.filter(menu=self, plate__type=type_plate).first().plate
+
 class PlateIngredients(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     plate = models.ForeignKey(Plate, on_delete=models.CASCADE)

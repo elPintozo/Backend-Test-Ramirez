@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% url 'menus:list-menu' as list_menu %}
+    {% url 'home' as home %}
+
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-9">
+            <a href="{{list_menu}}" class="btn btn-info">Back</a>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-4"><h3 style="margin-top: 0px;">Lunch</h3></div>
+                <div class="col-lg-4 col-lg-offset-4"><a href="{% url 'menus:add-ingredient-to-plate' pk_menu '1' %}" class="btn btn-primary">Add Ingredient</a></div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ingredient</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pi in my_plates_lunch %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ pi.ingredient.name|capfirst }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="2">without ingredients</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-4"><h3 style="margin-top: 0px;">Salad</h3></div>
+                <div class="col-lg-4 col-lg-offset-4"><a href="{% url 'menus:add-ingredient-to-plate' pk_menu '2' %}" class="btn btn-primary">Add Ingredient</a></div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ingredient</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pi in my_plates_salad %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ pi.ingredient.name|capfirst }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="2">without ingredients</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-4"><h3 style="margin-top: 0px;">Dessert</h3></div>
+                <div class="col-lg-4 col-lg-offset-4"><a href="{% url 'menus:add-ingredient-to-plate' pk_menu '3' %}" class="btn btn-primary">Add Ingredient</a></div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ingredient</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pi in my_plates_dessert %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ pi.ingredient.name|capfirst }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="2">without ingredients</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock%}

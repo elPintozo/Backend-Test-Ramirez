@@ -3,6 +3,8 @@
 {% block content %}
     {% url 'menus:add-ingredient' as add_ingredient %}
     {% url 'menus:list-ingredient' as list_ingredient %}
+    {% url 'menus:add-menu' as add_menu %}
+    {% url 'menus:list-menu' as list_menu %}
 
     <div class="row">
         <div class="col-lg-12 form-group">
@@ -17,8 +19,8 @@
             <div class="panel panel-info">
                 <div class="panel-heading">Menu</div>
                 <div class="panel-body">
-                    <a href="#" class="btn btn-info">Create menu</a>
-                    <a href="#" class="btn btn-info">Menu list</a>
+                    <a href="{{add_menu}}" class="btn btn-info">Create menu</a>
+                    <a href="{{list_menu}}" class="btn btn-info">Menu list</a>
                 </div>
             </div>
 
