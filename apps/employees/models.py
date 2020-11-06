@@ -41,3 +41,10 @@ class EmployeePreferences(models.Model):
 
     class Meta:
         unique_together = [['plate', 'ingredient']]
+
+"""
+Tips to load data: 
+
+** You can use this command for load data 
+$ python3 manage.py loaddata employees_06112020.json.json
+"""

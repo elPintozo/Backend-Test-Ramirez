@@ -1,0 +1,57 @@
+[
+{
+    "model": "employees.employee",
+    "pk": 1,
+    "fields": {
+        "name": "Employee 1",
+        "phone": 981275085,
+        "email": "employee1@cornershop.com",
+        "nationality": "46",
+        "create_at": "2020-11-04T17:52:25.088Z"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 2,
+    "fields": {
+        "name": "Employee 2",
+        "phone": 981275086,
+        "email": "employee2@cornershop.com",
+        "nationality": "46",
+        "create_at": "2020-11-04T17:52:55.108Z"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 3,
+    "fields": {
+        "name": "Employee 3",
+        "phone": 81275087,
+        "email": "employee3@cornershop.com",
+        "nationality": "42",
+        "create_at": "2020-11-04T17:53:13.717Z"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 4,
+    "fields": {
+        "name": "Employee 4",
+        "phone": 81275088,
+        "email": "employee4@cornershop.com",
+        "nationality": "46",
+        "create_at": "2020-11-04T17:53:35.890Z"
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 5,
+    "fields": {
+        "name": "Employee 5",
+        "phone": 81275089,
+        "email": "employee5@cornershop.com",
+        "nationality": "75",
+        "create_at": "2020-11-04T17:54:06.090Z"
+    }
+}
+]
