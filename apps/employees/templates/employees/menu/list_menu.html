@@ -23,7 +23,7 @@
                             <th scope="row">{{ forloop.counter }}</th>
                             <td>{{ menu.name|capfirst }}</td>
                             <td>{{ menu.day|date:"d-m-Y" }}</td>
-                            <td><a href="{% url 'employees:list-plate-from-menu' menu.identifier %}" class="btn btn-primary">Look plates</a> </td>
+                            <td><a href="{% url 'employees:list-plate-from-menu' menu.identifier phone_employee %}" class="btn btn-primary">Look plates</a> </td>
                         </tr>
                     {% empty %}
                         <tr>

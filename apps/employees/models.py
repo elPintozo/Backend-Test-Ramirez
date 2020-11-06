@@ -17,6 +17,17 @@ class Employee(models.Model):
     def __str__(self):
         return self.email
 
+    def get_or_create_plate(self, type_plate):
+        """
+
+        :param type_plate (string):
+        :return (Plate):
+        """
+        if not EmployeePreferences.objects.filter(employee=self, plate__type=type_plate).count():
+            return views_menu.Plate.objects.create(name=' ', type=type_plate)
+        else:
+            return EmployeePreferences.objects.filter(employee=self, plate__type=type_plate).first().plate
+
 class EmployeePreferences(models.Model):
     type_options = (
         ('1', 'Like'),

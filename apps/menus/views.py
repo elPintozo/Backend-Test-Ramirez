@@ -2,6 +2,7 @@
 from datetime import datetime, timedelta
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Apps.menus
 from apps.menus import forms
@@ -22,6 +23,10 @@ def create_ingredient(request):
 
         if form.is_valid():
             form.save()
+
+            # I send a success message
+            messages.success(request, 'Ingredient was create successful')
+
             return redirect('menus:list-ingredient')
     else:
         form = forms.IngredientForm()
@@ -59,6 +64,10 @@ def create_menu(request):
 
         if form.is_valid():
             form.save()
+
+            # I send a success message
+            messages.success(request, 'Menu was create successful')
+
             return redirect('menus:list-menu')
     else:
         form = forms.MenuForm()
@@ -123,6 +132,10 @@ def add_ingredient_to_plate(request, pk_menu, type_plate):
 
         if form.is_valid():
             form.save()
+
+            # I send a success message
+            messages.success(request, 'Ingredient was add to the plate')
+
             return redirect('menus:list-plate-from-menu', pk_menu)
     else:
         form = forms.PlateIngredientsForm()
