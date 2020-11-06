@@ -75,7 +75,7 @@ def create_menu(request):
 def list_menu(request):
     """
     Function for lists the menus
-    :param request (POST):
+    :param request ():
     :return ():
     """
 

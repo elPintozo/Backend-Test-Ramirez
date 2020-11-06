@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% url 'employees:list-menu' as list_menu %}
+
+    <div class="row">
+        <div class="col-lg-1 col-lg-offset-11">
+            <a href="{{list_menu}}" class="btn btn-info">Back</a>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4"><h3 style="margin-top: 0px;">Lunch</h3></div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ingredient</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pi in my_plates_lunch %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ pi.ingredient.name|capfirst }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="2">without ingredients</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4"><h3 style="margin-top: 0px;">Salad</h3></div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ingredient</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pi in my_plates_salad %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ pi.ingredient.name|capfirst }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="2">without ingredients</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4"><h3 style="margin-top: 0px;">Dessert</h3></div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ingredient</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pi in my_plates_dessert %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ pi.ingredient.name|capfirst }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="2">without ingredients</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock%}
